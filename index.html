@@ -152,3 +152,257 @@
         .card h3 {
             color: var(--azul-escuro);
             margin-bottom: 10px;
+        }
+
+        /* Quiz */
+        .quiz-section {
+            background-color: var(--azul-claro);
+        }
+
+        .quiz-box {
+            background-color: var(--bg-card);
+            padding: 30px;
+            border-radius: 12px;
+            margin-top: 30px;
+        }
+
+        .alternativas {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin: 25px 0;
+        }
+
+        .opcao {
+            background-color: var(--bg-principal);
+            padding: 15px;
+            border-radius: 6px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: var(--transicao);
+        }
+
+        .opcao:hover {
+            background-color: var(--azul-claro);
+            border-left: 3px solid var(--azul-destaque);
+        }
+
+        .btn-primary, .btn-submit {
+            background-color: var(--azul-destaque);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover, .btn-submit:hover {
+            background-color: var(--azul-escuro);
+        }
+
+        .feedback-text {
+            margin-top: 20px;
+            padding: 12px;
+            border-radius: 6px;
+            font-weight: bold;
+        }
+
+        /* Formulário */
+        .interactive-form {
+            background-color: var(--bg-card);
+            padding: 30px;
+            border-radius: 12px;
+            max-width: 600px;
+            margin: 30px auto 0 auto;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .form-group label {
+            font-weight: 600;
+            color: var(--azul-escuro);
+        }
+
+        .form-group input, .form-group select, .form-group textarea {
+            padding: 12px;
+            border: 1px solid var(--azul-claro);
+            background-color: var(--bg-principal);
+            color: var(--texto-cor);
+            border-radius: 6px;
+        }
+
+        .feedback-success {
+            margin-top: 15px;
+            color: var(--sucesso);
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .main-footer {
+            background-color: var(--azul-escuro);
+            color: #ffffff;
+            text-align: center;
+            padding: 25px 20px;
+            margin-top: 40px;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .nav-menu {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .cards-dicas {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="header-container">
+            <h1>Conexão<span>Segura</span></h1>
+            <nav class="nav-menu">
+                <a href="#sobre">Sobre Deepfakes</a>
+                <a href="#quiz">Teste seus Clones</a>
+                <a href="#denuncie">Conscientização</a>
+            </nav>
+            <button id="toggle-accessibility" class="btn-accessible">Modo Escuro</button>
+        </div>
+    </header>
+
+    <main>
+        <section id="sobre" class="hero-section">
+            <div class="section-container">
+                <h2>O Impacto das Deepfakes na Sociedade</h2>
+                <p>Com o avanço da Inteligência Artificial, a criação de vídeos e imagens falsas tornou-se ultra-realista. Entender como identificar essas manipulações é o primeiro passo para exercer uma cidadania digital ética.</p>
+                <div class="cards-dicas">
+                    <div class="card">
+                        <h3>O que procurar?</h3>
+                        <p>Fique atento a piscadas de olhos não naturais, falhas na iluminação do rosto e desencaixes nas bordas do cabelo.</p>
+                    </div>
+                    <div class="card">
+                        <h3>O perigo do áudio</h3>
+                        <p>Clonagem de voz por IA já é usada para golpes. Sempre confirme a identidade da pessoa por outro canal.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="quiz" class="quiz-section">
+            <div class="section-container">
+                <h2>Desafio Blindagem Digital</h2>
+                <p>Será que você consegue identificar uma informação gerada ou manipulada por IA?</p>
+                
+                <div class="quiz-box">
+                    <div class="pergunta">
+                        <h3>Pergunta: Se você receber um vídeo de um político famoso cometendo um crime grave, qual deve ser sua primeira atitude?</h3>
+                        <div class="alternativas">
+                            <label class="opcao">
+                                <input type="radio" name="quiz-ans" value="errada1"> Compartilhar imediatamente nos grupos para alertar.
+                            </label>
+                            <label class="opcao">
+                                <input type="radio" name="quiz-ans" value="correta"> Procurar o vídeo em veículos de imprensa confiáveis e agências de checagem.
+                            </label>
+                            <label class="opcao">
+                                <input type="radio" name="quiz-ans" value="errada2"> Editar o vídeo para tentar achar borrões na imagem.
+                            </label>
+                        </div>
+                        <button id="btn-verificar" class="btn-primary">Verificar Resposta</button>
+                        <p id="quiz-feedback" class="feedback-text hidden"></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="denuncie" class="form-section">
+            <div class="section-container">
+                <h2>Faça sua Parte</h2>
+                <form id="denuncia-form" class="interactive-form">
+                    <div class="form-group">
+                        <label for="tipo-midia">Tipo de Mídia Suspeita:</label>
+                        <select id="tipo-midia" required>
+                            <option value="">Selecione...</option>
+                            <option value="video">Vídeo Manipulado (Deepfake)</option>
+                            <option value="audio">Áudio Clonado (Voz)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="descricao-caso">Sinais que notou:</label>
+                        <textarea id="descricao-caso" rows="4" placeholder="Ex: Movimento da boca estava estranho..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit">Enviar Registro</button>
+                    <p id="form-feedback" class="feedback-success hidden">Obrigado! Seu relato ajuda a fortalecer a segurança digital coletiva.</p>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <p>&copy; 2026 Conexão Segura. Desenvolvido para o Projeto de Cidadania Digital e IA.</p>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // Modo Escuro
+            const btnAccessibility = document.getElementById("toggle-accessibility");
+            btnAccessibility.addEventListener("click", () => {
+                document.body.classList.toggle("dark-mode");
+                btnAccessibility.textContent = document.body.classList.contains("dark-mode") ? "Modo Claro" : "Modo Escuro";
+            });
+
+            // Validador do Quiz
+            const btnVerificar = document.getElementById("btn-verificar");
+            const feedbackQuiz = document.getElementById("quiz-feedback");
+
+            btnVerificar.addEventListener("click", () => {
+                const opcaoSelecionada = document.querySelector('input[name="quiz-ans"]:checked');
+                if (!opcaoSelecionada) {
+                    feedbackQuiz.textContent = "Selecione uma alternativa primeiro!";
+                    feedbackQuiz.style.color = "#d35400";
+                    feedbackQuiz.classList.remove("hidden");
+                    return;
+                }
+
+                if (opcaoSelecionada.value === "correta") {
+                    feedbackQuiz.textContent = "Parabéns! Resposta correta. Checar fontes profissionais é a melhor barreira contra deepfakes.";
+                    feedbackQuiz.style.color = "#27ae60";
+                } else {
+                    feedbackQuiz.textContent = "Atenção! O correto é sempre suspender o compartilhamento automático e checar fontes.";
+                    feedbackQuiz.style.color = "#c0392b";
+                }
+                feedbackQuiz.classList.remove("hidden");
+            });
+
+            // Formulário
+            const formulario = document.getElementById("denuncia-form");
+            const feedbackForm = document.getElementById("form-feedback");
+
+            formulario.addEventListener("submit", (evento) => {
+                evento.preventDefault();
+                feedbackForm.classList.remove("hidden");
+                formulario.reset();
+                setTimeout(() => { feedbackForm.classList.add("hidden"); }, 4000);
+            });
+        });
+    </script>
+</body>
+</html>
