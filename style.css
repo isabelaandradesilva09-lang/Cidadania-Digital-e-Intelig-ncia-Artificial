@@ -1,0 +1,300 @@
+/* ==========================================================================
+   1. Variáveis de Cores (Paleta Tons de Azul Claro) e Configurações Gerais
+   ========================================================================== */
+:root {
+    --bg-principal: #f0f7fc;       /* Azul gelo muito claro */
+    --bg-card: #ffffff;            /* Branco puro para contraste */
+    --azul-claro: #e1effa;         /* Azul claro suave para fundos secundários */
+    --azul-destaque: #3a9ad9;      /* Azul intermediário vivo */
+    --azul-escuro: #1e4866;        /* Azul escuro para textos legíveis */
+    --texto-cor: #2c3e50;
+    --sucesso: #27ae60;
+    --transicao: all 0.3s ease;
+}
+
+/* Classe do Modo Escuro / Contraste Ativado via JS */
+body.dark-mode {
+    --bg-principal: #121e26;
+    --bg-card: #1c2d3a;
+    --azul-claro: #253b4c;
+    --azul-destaque: #5cb3e9;
+    --azul-escuro: #ecf3f9;
+    --texto-cor: #e2e8f0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--bg-principal);
+    color: var(--texto-cor);
+    line-height: 1.6;
+    transition: var(--transicao);
+}
+
+.section-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+h2 {
+    color: var(--azul-escuro);
+    font-size: 2rem;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+/* ==========================================================================
+   2. Layout do Header (Flexbox)
+   ========================================================================== */
+.main-header {
+    background-color: var(--bg-card);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: var(--transicao);
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.main-header h1 {
+    font-size: 1.5rem;
+    color: var(--azul-escuro);
+}
+
+.main-header h1 span {
+    color: var(--azul-destaque);
+}
+
+.nav-menu {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: var(--texto-cor);
+    font-weight: 600;
+    transition: var(--transicao);
+}
+
+.nav-menu a:hover {
+    color: var(--azul-destaque);
+}
+
+.btn-accessible {
+    background-color: var(--azul-claro);
+    color: var(--azul-escuro);
+    border: 1px solid var(--azul-destaque);
+    padding: 8px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: var(--transicao);
+}
+
+.btn-accessible:hover {
+    background-color: var(--azul-destaque);
+    color: white;
+}
+
+/* ==========================================================================
+   3. Seção Principal (Hero) e Cards
+   ========================================================================== */
+.hero-section {
+    text-align: center;
+    padding-top: 60px;
+}
+
+.hero-section > .section-container > p {
+    max-width: 800px;
+    margin: 0 auto 40px auto;
+    font-size: 1.1rem;
+}
+
+.cards-dicas {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.card {
+    background-color: var(--bg-card);
+    border-left: 5px solid var(--azul-destaque);
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+    flex: 1;
+    text-align: left;
+    transition: var(--transicao);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(58, 154, 217, 0.15);
+}
+
+.card h3 {
+    color: var(--azul-escuro);
+    margin-bottom: 10px;
+}
+
+/* ==========================================================================
+   4. Seção Interativa do Quiz
+   ========================================================================== */
+.quiz-section {
+    background-color: var(--azul-claro);
+    transition: var(--transicao);
+}
+
+.quiz-box {
+    background-color: var(--bg-card);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+    margin-top: 30px;
+}
+
+.alternativas {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin: 25px 0;
+}
+
+.opcao {
+    background-color: var(--bg-principal);
+    padding: 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 500;
+    transition: var(--transicao);
+}
+
+.opcao:hover {
+    background-color: var(--azul-claro);
+    border-left: 3px solid var(--azul-destaque);
+}
+
+.btn-primary, .btn-submit {
+    background-color: var(--azul-destaque);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: var(--transicao);
+}
+
+.btn-primary:hover, .btn-submit:hover {
+    background-color: var(--azul-escuro);
+}
+
+.feedback-text {
+    margin-top: 20px;
+    padding: 12px;
+    border-radius: 6px;
+    font-weight: bold;
+}
+
+/* ==========================================================================
+   5. Formulário de Envio
+   ========================================================================== */
+.interactive-form {
+    background-color: var(--bg-card);
+    padding: 30px;
+    border-radius: 12px;
+    max-width: 600px;
+    margin: 30px auto 0 auto;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    font-weight: 600;
+    color: var(--azul-escuro);
+}
+
+.form-group input, .form-group select, .form-group textarea {
+    padding: 12px;
+    border: 1px solid var(--azul-claro);
+    background-color: var(--bg-principal);
+    color: var(--texto-cor);
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+.feedback-success {
+    margin-top: 15px;
+    color: var(--sucesso);
+    font-weight: bold;
+    text-align: center;
+}
+
+.hidden {
+    display: none;
+}
+
+/* ==========================================================================
+   6. Rodapé (Footer)
+   ========================================================================== */
+.main-footer {
+    background-color: var(--azul-escuro);
+    color: #ffffff;
+    text-align: center;
+    padding: 25px 20px;
+    font-size: 0.9rem;
+}
+
+.main-footer p {
+    margin-bottom: 5px;
+}
+
+/* ==========================================================================
+   7. Responsividade via Media Queries (Aulas 4)
+   ========================================================================== */
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+
+    .nav-menu {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .cards-dicas {
+        flex-direction: column;
+    }
+}
