@@ -4,101 +4,151 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Conexão Segura | Cidadania Digital e IA</title>
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
+    
+    <style>
+        :root {
+            --bg-principal: #f0f7fc;       /* Azul gelo super claro */
+            --bg-card: #ffffff;            /* Branco para os blocos */
+            --azul-claro: #e1effa;         /* Azul claro suave */
+            --azul-destaque: #3a9ad9;      /* Azul vivo para botões e links */
+            --azul-escuro: #1e4866;        /* Azul escuro para letras legíveis */
+            --texto-cor: #2c3e50;
+            --sucesso: #27ae60;
+            --transicao: all 0.3s ease;
+        }
 
-    <header class="main-header">
-        <div class="header-container">
-            <h1>Conexão<span>Segura</span></h1>
-            <nav class="nav-menu">
-                <a href="#sobre">Sobre Deepfakes</a>
-                <a href="#quiz">Teste seus Clones</a>
-                <a href="#denuncie">Conscientização</a>
-            </nav>
-            <button id="toggle-accessibility" class="btn-accessible" aria-label="Alternar Contraste">Modo Escuro</button>
-        </div>
-    </header>
+        body.dark-mode {
+            --bg-principal: #121e26;
+            --bg-card: #1c2d3a;
+            --azul-claro: #253b4c;
+            --azul-destaque: #5cb3e9;
+            --azul-escuro: #ecf3f9;
+            --texto-cor: #e2e8f0;
+        }
 
-    <main>
-        <section id="sobre" class="hero-section">
-            <div class="section-container">
-                <h2>O Impacto das Deepfakes na Sociedade</h2>
-                <p>Com o avanço da Inteligência Artificial, a criação de vídeos, áudios e imagens falsas tornou-se ultra-realista. Entender como identificar essas manipulações é o primeiro passo para exercer uma cidadania digital ética e segura.</p>
-                <div class="cards-dicas">
-                    <div class="card">
-                        <h3>O que procurar?</h3>
-                        <p>Fique atento a piscadas de olhos não naturais, falhas na iluminação do rosto e desencaixes nas bordas do cabelo ou orelhas.</p>
-                    </div>
-                    <div class="card">
-                        <h3>O perigo do áudio</h3>
-                        <p>Clonagem de voz por IA já é usada para golpes. Sempre confirme a identidade da pessoa por outro canal de comunicação.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-        <section id="quiz" class="quiz-section">
-            <div class="section-container">
-                <h2>Desafio Blindagem Digital</h2>
-                <p>Será que você consegue identificar uma informação gerada ou manipulada por IA? Teste seus conhecimentos abaixo!</p>
-                
-                <div class="quiz-box">
-                    <div class="pergunta" id="pergunta-bloco">
-                        <h3>Pergunta: Se você receber um vídeo de um político famoso cometendo um crime grave, qual deve ser sua primeira atitude?</h3>
-                        
-                        <div class="alternativas">
-                            <label class="opcao">
-                                <input type="radio" name="quiz-ans" value="errada1"> Compartilhar imediatamente nos grupos de família para alertar a todos.
-                            </label>
-                            <label class="opcao">
-                                <input type="radio" name="quiz-ans" value="correta"> Procurar o vídeo em veículos de imprensa confiáveis e checar agências de fact-checking.
-                            </label>
-                            <label class="opcao">
-                                <input type="radio" name="quiz-ans" value="errada2"> Baixar o vídeo e tentar editá-lo para ver se encontra borrões na imagem.
-                            </label>
-                        </div>
-                        
-                        <button id="btn-verificar" class="btn-primary">Verificar Resposta</button>
-                        <p id="quiz-feedback" class="feedback-text hidden"></p>
-                    </div>
-                </div>
-            </div>
-        </section>
+        html {
+            scroll-behavior: smooth;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
 
-        <section id="denuncie" class="form-section">
-            <div class="section-container">
-                <h2>Faça sua Parte</h2>
-                <p>Presenciou alguma deepfake maldosa ou desinformação automatizada rodando pelas redes? Relate o padrão para nos ajudar a mapear as ameaças locais de forma anônima.</p>
-                
-                <form id="denuncia-form" class="interactive-form">
-                    <div class="form-group">
-                        <label for="tipo-midia">Tipo de Mídia Suspeita:</label>
-                        <select id="tipo-midia" required>
-                            <option value="">Selecione...</option>
-                            <option value="video">Vídeo Manipulado (Deepfake)</option>
-                            <option value="audio">Áudio Clonado (Voz)</option>
-                            <option value="texto">Texto de IA (Notícia Falsa)</option>
-                        </select>
-                    </div>
+        body {
+            background-color: var(--bg-principal);
+            color: var(--texto-cor);
+            line-height: 1.6;
+            transition: var(--transicao);
+        }
 
-                    <div class="form-group">
-                        <label for="descricao-caso">Descreva onde encontrou e os sinais que notou:</label>
-                        <textarea id="descricao-caso" rows="4" placeholder="Ex: Vi no WhatsApp, o movimento da boca estava dessincronizado..." required></textarea>
-                    </div>
+        .section-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
 
-                    <button type="submit" class="btn-submit">Enviar Registro</button>
-                    <p id="form-feedback" class="feedback-success hidden">Obrigado! Seu relato ajuda a fortalecer a segurança digital coletiva.</p>
-                </form>
-            </div>
-        </section>
-    </main>
+        h2 {
+            color: var(--azul-escuro);
+            font-size: 2rem;
+            margin-bottom: 15px;
+            text-align: center;
+        }
 
-    <footer class="main-footer">
-        <p>&copy; 2026 Conexão Segura. Desenvolvido para o Projeto de Cidadania Digital e IA.</p>
-        <p>Imagens e mídias concebidas pelo autor. Uso de IA restrito à assistência de código.</p>
-    </footer>
+        /* Header e Menu */
+        .main-header {
+            background-color: var(--bg-card);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
 
-    <script src="js/script.js"></script>
-</body>
-</html>
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .main-header h1 {
+            font-size: 1.5rem;
+            color: var(--azul-escuro);
+        }
+
+        .main-header h1 span {
+            color: var(--azul-destaque);
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--texto-cor);
+            font-weight: 600;
+            transition: var(--transicao);
+        }
+
+        .nav-menu a:hover {
+            color: var(--azul-destaque);
+        }
+
+        .btn-accessible {
+            background-color: var(--azul-claro);
+            color: var(--azul-escuro);
+            border: 1px solid var(--azul-destaque);
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .btn-accessible:hover {
+            background-color: var(--azul-destaque);
+            color: white;
+        }
+
+        /* Cards Informativos */
+        .hero-section {
+            text-align: center;
+            padding-top: 60px;
+        }
+
+        .hero-section p {
+            max-width: 800px;
+            margin: 0 auto 40px auto;
+        }
+
+        .cards-dicas {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .card {
+            background-color: var(--bg-card);
+            border-left: 5px solid var(--azul-destaque);
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            flex: 1;
+            text-align: left;
+            transition: var(--transicao);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(58, 154, 217, 0.15);
+        }
+
+        .card h3 {
+            color: var(--azul-escuro);
+            margin-bottom: 10px;
