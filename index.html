@@ -47,14 +47,25 @@
         .section-container {
             max-width: 1100px;
             margin: 0 auto;
-            padding: 40px 20px;
+            padding: 50px 20px;
         }
 
         h2 {
             color: var(--azul-escuro);
-            font-size: 2rem;
-            margin-bottom: 15px;
+            font-size: 2.2rem;
+            margin-bottom: 20px;
             text-align: center;
+        }
+
+        h3 {
+            color: var(--azul-escuro);
+            margin-bottom: 12px;
+            font-size: 1.4rem;
+        }
+
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
         }
 
         /* Header e Menu */
@@ -115,15 +126,17 @@
             color: white;
         }
 
-        /* Cards Informativos */
+        /* Seções de Texto e Conscientização */
         .hero-section {
-            text-align: center;
             padding-top: 60px;
         }
 
-        .hero-section p {
-            max-width: 800px;
-            margin: 0 auto 40px auto;
+        .bloco-texto {
+            background-color: var(--bg-card);
+            padding: 30px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
         }
 
         .cards-dicas {
@@ -135,23 +148,17 @@
 
         .card {
             background-color: var(--bg-card);
-            border-left: 5px solid var(--azul-destaque);
+            border-top: 4px solid var(--azul-destaque);
             padding: 25px;
             border-radius: 8px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.02);
             flex: 1;
-            text-align: left;
             transition: var(--transicao);
         }
 
         .card:hover {
             transform: translateY(-5px);
             box-shadow: 0 8px 15px rgba(58, 154, 217, 0.15);
-        }
-
-        .card h3 {
-            color: var(--azul-escuro);
-            margin-bottom: 10px;
         }
 
         /* Quiz */
@@ -268,6 +275,7 @@
             .nav-menu {
                 flex-direction: column;
                 gap: 10px;
+                text-align: center;
             }
             .cards-dicas {
                 flex-direction: column;
@@ -281,9 +289,10 @@
         <div class="header-container">
             <h1>Conexão<span>Segura</span></h1>
             <nav class="nav-menu">
-                <a href="#sobre">Sobre Deepfakes</a>
-                <a href="#quiz">Teste seus Clones</a>
-                <a href="#denuncie">Conscientização</a>
+                <a href="#sobre">O Cenário</a>
+                <a href="#identificar">Como Identificar</a>
+                <a href="#quiz">Teste seus Conhecimentos</a>
+                <a href="#denuncie">Ação Coletiva</a>
             </nav>
             <button id="toggle-accessibility" class="btn-accessible">Modo Escuro</button>
         </div>
@@ -292,16 +301,38 @@
     <main>
         <section id="sobre" class="hero-section">
             <div class="section-container">
-                <h2>O Impacto das Deepfakes na Sociedade</h2>
-                <p>Com o avanço da Inteligência Artificial, a criação de vídeos e imagens falsas tornou-se ultra-realista. Entender como identificar essas manipulações é o primeiro passo para exercer uma cidadania digital ética.</p>
+                <h2>Cidadania Digital na Era da Inteligência Artificial</h2>
+                
+                <div class="bloco-texto">
+                    <h3>O Impacto das Deepfakes na Sociedade</h3>
+                    <p>A evolução vertiginosa dos algoritmos de inteligência artificial generativa trouxe avanços incríveis para a indústria criativa, mas também abriu margem para novos e complexos desafios éticos. O mais alarmante deles é a popularização das <strong>deepfakes</strong>: mídias (vídeos, áudios ou imagens) sintéticas criadas por redes neurais capazes de simular o rosto, os movimentos e até o timbre de voz de pessoas reais com precisão assustadora.</p>
+                    <p>O perigo real surge quando essa tecnologia é intencionalmente direcionada para desestabilizar a sociedade. A desinformação automatizada não é apenas uma "notícia falsa" isolada, mas sim uma engrenagem capaz de moldar narrativas falsas em larga escala, prejudicando a reputação de cidadãos, influenciando debates democráticos e quebrando a confiança pública naquilo que vemos e ouvimos nos ambientes virtuais.</p>
+                </div>
+
+                <div class="bloco-texto">
+                    <h3>O que significa exercer a Cidadania Digital?</h3>
+                    <p>Ser um cidadão digital ativo em 2026 exige muito mais do que apenas saber navegar pelas redes sociais ou programar softwares. Significa desenvolver um <strong>pensamento crítico apurado</strong> frente aos fluxos de informação. A cidadania digital baseia-se na responsabilidade ética de filtrar o que consumimos, interromper cadeias de compartilhamentos suspeitos e utilizar as ferramentas tecnológicas disponíveis para validar a veracidade dos fatos antes de formar juízos de valor.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="identificar" style="background-color: var(--bg-card);">
+            <div class="section-container">
+                <h2>Guia Prático: Como Detectar Manipulações</h2>
+                <p style="text-align: center; max-width: 800px; margin: 0 auto 30px auto;">Embora os geradores de IA estejam se aperfeiçoando, eles ainda deixam pequenos rastros digitais e inconsistências físicas. Veja os principais pontos de atenção para não ser enganado:</p>
+                
                 <div class="cards-dicas">
                     <div class="card">
-                        <h3>O que procurar?</h3>
-                        <p>Fique atento a piscadas de olhos não naturais, falhas na iluminação do rosto e desencaixes nas bordas do cabelo.</p>
+                        <h3>1. Inconsistências Faciais</h3>
+                        <p>Observe atentamente os olhos e a boca. Geradores de deepfake costumam falhar ao renderizar o reflexo da luz nas pupilas ou a taxa natural de piscadas. Fique atento também aos dentes, que às vezes aparecem sem divisões claras ou levemente borrados.</p>
                     </div>
                     <div class="card">
-                        <h3>O perigo do áudio</h3>
-                        <p>Clonagem de voz por IA já é usada para golpes. Sempre confirme a identidade da pessoa por outro canal.</p>
+                        <h3>2. Iluminação e Bordas</h3>
+                        <p>Muitas vezes, a iluminação do rosto não bate com o fundo do cenário. Bordas próximas ao cabelo, orelhas e pescoço tendem a apresentar pequenos borrões, tremores sutis ou artefatos digitais estranhos quando a pessoa se move rápido.</p>
+                    </div>
+                    <div class="card">
+                        <h3>3. Desconexão de Áudio</h3>
+                        <p>A clonagem de voz pode imitar o timbre perfeitamente, mas costuma falhar na entonação emocional, no ritmo da respiração e nas pausas naturais da fala humana. Além disso, verifique se os movimentos dos lábios estão 100% em sincronia com o som emitido.</p>
                     </div>
                 </div>
             </div>
@@ -310,23 +341,25 @@
         <section id="quiz" class="quiz-section">
             <div class="section-container">
                 <h2>Desafio Blindagem Digital</h2>
-                <p>Será que você consegue identificar uma informação gerada ou manipulada por IA?</p>
+                <p style="text-align: center;">Avalie seu nível de criticidade digital respondendo à questão prática com base em situações reais do cotidiano cibernético.</p>
                 
                 <div class="quiz-box">
                     <div class="pergunta">
-                        <h3>Pergunta: Se você receber um vídeo de um político famoso cometendo um crime grave, qual deve ser sua primeira atitude?</h3>
+                        <h3>Caso Prático: Você recebeu um arquivo de áudio urgente em um aplicativo de mensagens. Nele, a voz de um colega de classe ou familiar pede uma transferência financeira rápida devido a uma suposta emergência. Como agir com base na segurança digital?</h3>
+                        
                         <div class="alternativas">
                             <label class="opcao">
-                                <input type="radio" name="quiz-ans" value="errada1"> Compartilhar imediatamente nos grupos para alertar.
+                                <input type="radio" name="quiz-ans" value="errada1"> Enviar o valor imediatamente para ajudar, afinal, a voz é perfeitamente idêntica à da pessoa conhecida.
                             </label>
                             <label class="opcao">
-                                <input type="radio" name="quiz-ans" value="correta"> Procurar o vídeo em veículos de imprensa confiáveis e agências de checagem.
+                                <input type="radio" name="quiz-ans" value="correta"> Suspeitar do pedido e realizar uma chamada telefônica comum ou de vídeo por outro canal de comunicação para confirmar a identidade antes de qualquer ação.
                             </label>
                             <label class="opcao">
-                                <input type="radio" name="quiz-ans" value="errada2"> Editar o vídeo para tentar achar borrões na imagem.
+                                <input type="radio" name="quiz-ans" value="errada2"> Compartilhar o áudio em outros grupos para perguntar se mais alguém acha que a voz parece alterada por IA.
                             </label>
                         </div>
-                        <button id="btn-verificar" class="btn-primary">Verificar Resposta</button>
+                        
+                        <button id="btn-verificar" class="btn-primary">Validar Conduta Ética</button>
                         <p id="quiz-feedback" class="feedback-text hidden"></p>
                     </div>
                 </div>
@@ -335,64 +368,72 @@
 
         <section id="denuncie" class="form-section">
             <div class="section-container">
-                <h2>Faça sua Parte</h2>
+                <h2>Monitore e Colabore com a Comunidade</h2>
+                <p style="text-align: center; max-width: 700px; margin: 0 auto 20px auto;">Ao encontrar conteúdos com fortes indícios de manipulação maliciosa por Inteligência Artificial ou campanhas de boatos automatizados, registre o tipo de ocorrência. Nosso objetivo é catalogar os formatos mais comuns de golpes digitais para fins educativos.</p>
+                
                 <form id="denuncia-form" class="interactive-form">
                     <div class="form-group">
-                        <label for="tipo-midia">Tipo de Mídia Suspeita:</label>
+                        <label for="tipo-midia">Tipo de Mídia Suspeita Identificada:</label>
                         <select id="tipo-midia" required>
-                            <option value="">Selecione...</option>
-                            <option value="video">Vídeo Manipulado (Deepfake)</option>
-                            <option value="audio">Áudio Clonado (Voz)</option>
+                            <option value="">Selecione o formato...</option>
+                            <option value="video">Vídeo Manipulado (Deepfake Facial)</option>
+                            <option value="audio">Áudio Clonado (Simulação de Voz)</option>
+                            <option value="imagem">Imagem Estática Gerada por IA (Perfil Falso)</option>
+                            <option value="texto">Texto Massivo Automatizado (Bot de Desinformação)</option>
                         </select>
                     </div>
+                    
                     <div class="form-group">
-                        <label for="descricao-caso">Sinais que notou:</label>
-                        <textarea id="descricao-caso" rows="4" placeholder="Ex: Movimento da boca estava estranho..." required></textarea>
+                        <label for="descricao-caso">Relate quais sinais de automação ou anomalia você observou:</label>
+                        <textarea id="descricao-caso" rows="5" placeholder="Ex: Recebi em um grupo de notícias. A pessoa do vídeo não piscava os olhos e a fala parecia robotizada, sem ritmo natural de respiração..." required></textarea>
                     </div>
-                    <button type="submit" class="btn-submit">Enviar Registro</button>
-                    <p id="form-feedback" class="feedback-success hidden">Obrigado! Seu relato ajuda a fortalecer a segurança digital coletiva.</p>
+                    
+                    <button type="submit" class="btn-submit">Enviar para Análise Coletiva</button>
+                    <p id="form-feedback" class="feedback-success hidden">Registro enviado com sucesso! Sua postura analítica ajuda a construir uma rede digital muito mais protegida.</p>
                 </form>
             </div>
         </section>
     </main>
 
     <footer class="main-footer">
-        <p>&copy; 2026 Conexão Segura. Desenvolvido para o Projeto de Cidadania Digital e IA.</p>
+        <p>&copy; 2026 Conexão Segura. Portal de Recuperação em Educação Digital e Computação: Programação e IA.</p>
+        <p>Conteúdo estritamente autoral voltado para a conscientização escolar sobre Cidadania Digital e Ética Cibernética.</p>
     </footer>
 
     <script>
         document.addEventListener("DOMContentLoaded", () => {
-            // Modo Escuro
+            // Lógica do Modo Escuro / Contraste Ajustável
             const btnAccessibility = document.getElementById("toggle-accessibility");
             btnAccessibility.addEventListener("click", () => {
                 document.body.classList.toggle("dark-mode");
                 btnAccessibility.textContent = document.body.classList.contains("dark-mode") ? "Modo Claro" : "Modo Escuro";
             });
 
-            // Validador do Quiz
+            // Lógica do Validador do Quiz
             const btnVerificar = document.getElementById("btn-verificar");
             const feedbackQuiz = document.getElementById("quiz-feedback");
 
             btnVerificar.addEventListener("click", () => {
                 const opcaoSelecionada = document.querySelector('input[name="quiz-ans"]:checked');
+                
                 if (!opcaoSelecionada) {
-                    feedbackQuiz.textContent = "Selecione uma alternativa primeiro!";
+                    feedbackQuiz.textContent = "Atenção: Escolha uma das opções antes de validar!";
                     feedbackQuiz.style.color = "#d35400";
                     feedbackQuiz.classList.remove("hidden");
                     return;
                 }
 
                 if (opcaoSelecionada.value === "correta") {
-                    feedbackQuiz.textContent = "Parabéns! Resposta correta. Checar fontes profissionais é a melhor barreira contra deepfakes.";
+                    feedbackQuiz.textContent = "Excelente escolha! Diante de solicitações suspeitas, quebrar o canal atual e cruzar dados de forma analítica é o pilar fundamental para mitigar fraudes por clonagem de voz.";
                     feedbackQuiz.style.color = "#27ae60";
                 } else {
-                    feedbackQuiz.textContent = "Atenção! O correto é sempre suspender o compartilhamento automático e checar fontes.";
+                    feedbackQuiz.textContent = "Alerta de risco! Agir por impulso ou espalhar o arquivo sem checagem prévia amplia o alcance da desinformação e pode comprometer patrimônios ou dados de terceiros.";
                     feedbackQuiz.style.color = "#c0392b";
                 }
                 feedbackQuiz.classList.remove("hidden");
             });
 
-            // Formulário
+            // Lógica de Feedback do Formulário Interativo
             const formulario = document.getElementById("denuncia-form");
             const feedbackForm = document.getElementById("form-feedback");
 
@@ -400,7 +441,9 @@
                 evento.preventDefault();
                 feedbackForm.classList.remove("hidden");
                 formulario.reset();
-                setTimeout(() => { feedbackForm.classList.add("hidden"); }, 4000);
+                setTimeout(() => { 
+                    feedbackForm.classList.add("hidden"); 
+                }, 5000);
             });
         });
     </script>
